@@ -1,2 +1,5 @@
 Hello, this is the repository of Yesha Alfafara
+<<<<<<< HEAD
 Completed my first commit and push. YAYY
+=======
+>>>>>>> 7e7ced975560bab09059cf75f9a2d0b9bf5e22c7
