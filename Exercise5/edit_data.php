@@ -9,91 +9,91 @@ if(isset($_GET['edit_id']))
 
 $Err = $fnameErr = $lnameErr = $nicknameErr = $emailErr = $genderErr = $homeAddErr = $phoneNumErr = "";
 
-if(isset($_POST['btn-update']))
-{
+if(isset($_POST['btn-update'])){
  // variables for input data
-    $fname = test_input($_POST["fname"]);
-    // check if fname only contains letters and numbers
-    if (!preg_match("/^[a-zA-Z0-9 ]*$/", $fname)) {
-      $fnameErr = "Only letters and numbers allowed"; 
-      $Err = "Err";
-    }
   
-
-    $lname = test_input($_POST["lname"]);
-    // check if lname only contains letters and numbers
-    if (!preg_match("/^[a-zA-Z0-9 ]*$/", $lname)) {
-      $lnameErr = "Only letters and numbers allowed"; 
-      $Err = "Err";
-    }
+  $fname = test_input($_POST["fname"]);
   
-    $nickname = test_input($_POST["nickname"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$nickname)) {
-      $nicknameErr = "Only letters and white space allowed"; 
-      $Err = "Err";
-    }
-
-    $email = test_input($_POST["email"]);
-    // check if e-mail address is well-formed
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "Invalid email format"; 
-      $Err = "Err";
-    }
-
-    $homeAdd = test_input($_POST["homeAdd"]);
-    // check if homeAdd only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$homeAdd)) {
-      $homeAddErr = "Only letters and white space allowed";
-      $Err = "Err"; 
-    }
-
-    if (empty($_POST["gender"])) {   
-      $genderErr = "Gender is required";    
-    } else {    
-      $gender = test_input($_POST["gender"]);   
-    }
+  // check if fname only contains letters and numbers
+  if (!preg_match("/^[a-zA-Z0-9 ]*$/", $fname)) {
+    $fnameErr = "Only letters and numbers allowed"; 
+    $Err = "Err";
+  }
   
-    $phoneNum = test_input($_POST["phoneNum"]);
-    // check if phoneNum only contains numbers
-    if (!preg_match("/^[0-9]*$/",$phoneNum)) {
-      $phoneNumErr = "Only numbers are allowed";
-      $Err = "Err"; 
-    }
+  $lname = test_input($_POST["lname"]);
+  
+  // check if lname only contains letters and numbers
+  if (!preg_match("/^[a-zA-Z0-9 ]*$/", $lname)) {
+    $lnameErr = "Only letters and numbers allowed"; 
+    $Err = "Err";
+  }
+  
+  $nickname = test_input($_POST["nickname"]);
+  
+  // check if name only contains letters and whitespace
+  if (!preg_match("/^[a-zA-Z ]*$/",$nickname)) {
+    $nicknameErr = "Only letters and white space allowed"; 
+    $Err = "Err";
+  }
 
-    if (empty($_POST["comment"])) {    
-      $comment = "";    
-    } else {    
-      $comment = test_input($_POST["comment"]);   
-    }
- // variables for input data
+  $email = test_input($_POST["email"]);
+    
+  // check if e-mail address is well-formed
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $emailErr = "Invalid email format"; 
+    $Err = "Err";
+  }
+
+  $homeAdd = test_input($_POST["homeAdd"]);
+    
+  // check if homeAdd only contains letters and whitespace
+  if (!preg_match("/^[a-zA-Z ]*$/",$homeAdd)) {
+    $homeAddErr = "Only letters and white space allowed";
+    $Err = "Err"; 
+  }
+
+  if (empty($_POST["gender"])) {   
+    $genderErr = "Gender is required";    
+  } else {    
+    $gender = test_input($_POST["gender"]);   
+  }
+  
+  $phoneNum = test_input($_POST["phoneNum"]);
+    
+  // check if phoneNum only contains numbers
+  if (!preg_match("/^[0-9]*$/",$phoneNum)) {
+    $phoneNumErr = "Only numbers are allowed";
+    $Err = "Err"; 
+  }
+
+  if (empty($_POST["comment"])) {    
+    $comment = "";    
+  } else {    
+    $comment = test_input($_POST["comment"]);   
+  }
 
  // sql query for update data into database
-    if($Err != "Err"){
+  if($Err != "Err"){
     $sql_query = "UPDATE users SET fname='$fname',lname='$lname',nickname='$nickname',email='$email',homeAdd='$homeAdd',gender='$gender',comment='$comment' WHERE user_id=".$_GET['edit_id'];
-    }
- // sql query for update data into database
- 
- // sql query execution function
- if(mysql_query($sql_query) && $Err != "Err")
- {
-  ?>
-  <script type="text/javascript">
-  alert('Data Are Updated Successfully');
-  window.location.href='index.php';
-  </script>
-  <?php
- }
- else
- {
-  ?>
-  <script type="text/javascript">
-  alert('error occured while updating data');
-  </script>
-  <?php
- }
- // sql query execution function
+  }
+
+  if(mysql_query($sql_query) && $Err != "Err"){
+    ?>
+    <script type="text/javascript">
+    alert('Data Are Updated Successfully');
+    window.location.href='index.php';
+    </script>
+    <?php
+  }
+  else{
+    ?>
+    <script type="text/javascript">
+    alert('error occured while updating data');
+    </script>
+    <?php
+  }
 }
+
 if(isset($_POST['btn-cancel']))
 {
  header("Location: index.php");
@@ -234,8 +234,8 @@ input[type=text], select {
        
         </tr>
           <td>
-            <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="<?php echo $fetched_row['gender']; ?>"> Female
-            <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="<?php echo $fetched_row['gender']; ?>"> Male 
+            <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="Female"> Female
+            <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="Male"> Male 
           </td>
         </tr>
 
