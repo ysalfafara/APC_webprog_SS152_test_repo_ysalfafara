@@ -52,8 +52,9 @@ if(isset($_POST['btn-update'])){
     $Err = "Err"; 
   }
 
-  if (empty($_POST["gender"])) {   
-    $genderErr = "Gender is required";    
+  if (empty($_POST["gender"])) { 
+    $genderErr = "Input gender";  
+    $Err = "Err";    
   } else {    
     $gender = test_input($_POST["gender"]);   
   }
@@ -74,7 +75,7 @@ if(isset($_POST['btn-update'])){
 
  // sql query for update data into database
   if($Err != "Err"){
-    $sql_query = "UPDATE users SET fname='$fname',lname='$lname',nickname='$nickname',email='$email',homeAdd='$homeAdd',gender='$gender',comment='$comment' WHERE user_id=".$_GET['edit_id'];
+    $sql_query = "UPDATE users SET fname='$fname',lname='$lname',nickname='$nickname',email='$email',homeAdd='$homeAdd',gender='$gender',phoneNum='$phoneNum',comment='$comment' WHERE user_id=".$_GET['edit_id'];
   }
 
   if(mysql_query($sql_query) && $Err != "Err"){
@@ -234,8 +235,10 @@ input[type=text], select {
        
         </tr>
           <td>
+            Gender:
             <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="Female"> Female
             <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="Male"> Male 
+            <span class="error">* <br><?php echo $genderErr;?></span>
           </td>
         </tr>
 

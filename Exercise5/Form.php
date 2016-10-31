@@ -42,7 +42,8 @@ if(isset($_POST['submit'])){
     }
 
     if (empty($_POST["gender"])) {   
-      $genderErr = "Gender is required";    
+      $genderErr = "Input gender";  
+      $Err = "Err";    
     } else {    
       $gender = test_input($_POST["gender"]);   
     }
@@ -88,7 +89,7 @@ body{
   opacity: 1.5;
 }
 
-.box{
+.box1{
   position: absolute;
   left: 30%;
   margin-top: 20px;
@@ -139,7 +140,7 @@ input{
 }
 
 input[type=text], select {
-  width: 200px;
+  width: 250px;
   height: 35px;
   padding: 12px 15px;
   margin: 8px 0;
@@ -149,13 +150,78 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
+.box{
+  background-color: #EEE7DA;
+  box-shadow: 1px 2px 20px #272532;
+  border-radius: 5px;
+  color: #EFF8F9;
+}
 
+.para2_white{
+  position: absolute;
+  font-family: calibri;
+  font-size: 14px;
+  color: #EEE7DA;
+  line-height: 0.5em;
+}
+
+#mini_box{
+  position: absolute;
+
+} 
+  #Profile, #Trivia, #Form, #Blank2, #Blank3{
+    margin-top: 15px; 
+    margin-left: 80px;
+    width: 160px;
+    height: 45px;
+  }
+
+  #Profile{
+    background-color: #6F5F5C;
+    margin-top: 295px; 
+  }
+
+  #Profile:hover{
+    background-color: #7D6F6C;
+  }
+
+  #Trivia{
+    background-color: #825D5B;
+  }
+
+  #Trivia:hover{
+    background-color: #8E6D6B;
+  }
+
+  #Form{
+    background-color: #A26B61;
+  }
+
+  #Form:hover{
+    background-color: #b48880;
+  }
+
+  #Blank2{
+    background-color: #E38F71;
+  }
+
+  #Blank2:hover{
+    background-color: #e8a58d;
+  }
+
+  #Blank3{
+    background-color: #F0B270;
+  }
+
+  #Blank3:hover{
+    background-color: #f3c18c;
+  }
 
 </style>
 <body>  
 
 <div style="position: relative">
-  <div class="box">
+  <div class="box1">
     <h2 id="formValid"> Form Validation </h2>
     <form method="post">  
       <table align = "center">
@@ -226,6 +292,30 @@ input[type=text], select {
         </td>
       </table>
     </form>
+  </div>
+
+    <!-- MINI BOX -->
+  <div id="mini_box">
+    <div class="box" id="Profile">
+      <p class="para2_white" style="font-size: 18px"> PROFILE </p>
+    </div>
+
+    <div class="box" id="Trivia" style="cursor: pointer" onclick="window.location='Trivia.html'">
+      <p class="para2_white" style="font-size: 18px"> TRIVIAS </p>
+    </div>
+    
+    <div class="box" id="Form" style="cursor: pointer" onclick="window.location='Form.php'">
+      <p class="para2_white" style="margin-left: 5px; font-size: 18px"> FORM </p>
+    </div>  
+    
+    <div class="box" id="Blank2">
+      <p class="para2_white" style="margin-left: 48px; font-size: 18px"> </p>
+    </div>
+
+    <div class="box" id="Blank3">
+      <p class="para2_white" style="margin-left: 48px; font-size: 18px"> </p>
+    </div>
+
   </div>
 </body>
 </html>
