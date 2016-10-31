@@ -41,7 +41,11 @@ if(isset($_POST['submit'])){
       $Err = "Err"; 
     }
 
-    $gender = test_input($_POST["gender"]);
+    if (empty($_POST["gender"])) {   
+      $genderErr = "Gender is required";    
+    } else {    
+      $gender = test_input($_POST["gender"]);   
+    }
   
     $phoneNum = test_input($_POST["phoneNum"]);
     // check if phoneNum only contains numbers
@@ -50,12 +54,17 @@ if(isset($_POST['submit'])){
       $Err = "Err"; 
     }
 
-    $comment = test_input($_POST["comment"]);
+    if (empty($_POST["comment"])) {    
+      $comment = "";    
+    } else {    
+      $comment = test_input($_POST["comment"]);   
+    }
 
     if($Err != "Err"){
       $sql_query = "INSERT INTO users(fname, lname, nickname, email, homeAdd, gender, phoneNum, comment) VALUES('$fname','$lname','$nickname', '$email','$homeAdd','$gender','$phoneNum', '$comment')";
       mysql_query($sql_query);
     }
+
 }
 
 function test_input($data) {
@@ -64,6 +73,7 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
+
 ?>
 
 <!DOCTYPE HTML>  
@@ -152,7 +162,7 @@ input[type=text], select {
 <div style="position: relative">
   <div class="box">
     <h2 id="formValid"> Form Validation </h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+    <form method="post">  
       <table align = "center">
         <tr align="center">
           <td><a href = "index.php"> Back to Main Page </a></td>
@@ -193,12 +203,15 @@ input[type=text], select {
           </td>
         </tr>
 
+        <tr>
         <td>
           Gender:
-          <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="Female" required>Female
-          <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="Male">Male
+          <!--<input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="<?php echo $fetched_row['gender']; ?>">Female
+          <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="<?php echo $fetched_row['gender']; ?>">Male -->
+          <input type="text" name="gender" placeholder="Gender" value="<?php echo $gender;?>">
           <span class="error">* <br><?php echo $genderErr;?></span>
         </td>
+        </tr>
 
         <tr>
           <td>
@@ -209,7 +222,7 @@ input[type=text], select {
         
         <tr>
           <td>
-            <textarea name="comment" placeholder="Comment" rows="5" cols="40"><?php echo $comment;?></textarea>
+            <input type="text" name="comment" placeholder="Comment" value="<?php echo $comment; ?>"> 
           </td>
         </tr>
         
