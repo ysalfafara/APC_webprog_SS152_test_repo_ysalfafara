@@ -296,7 +296,7 @@ input[type=text], select {
 
     <!-- MINI BOX -->
   <div id="mini_box">
-    <div class="box" id="Profile">
+    <div class="box" id="Profile" style="cursor: pointer" onclick="window.location='MyWebsite.html'">
       <p class="para2_white" style="font-size: 18px"> PROFILE </p>
     </div>
 
@@ -304,7 +304,7 @@ input[type=text], select {
       <p class="para2_white" style="font-size: 18px"> TRIVIAS </p>
     </div>
     
-    <div class="box" id="Form" style="cursor: pointer" onclick="window.location='Form.php'">
+    <div class="box" id="Form" style="cursor: pointer">
       <p class="para2_white" style="margin-left: 5px; font-size: 18px"> FORM </p>
     </div>  
     
