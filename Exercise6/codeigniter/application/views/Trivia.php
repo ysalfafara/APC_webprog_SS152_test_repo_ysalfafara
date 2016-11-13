@@ -118,10 +118,6 @@
 		background-color: #825D5B;
 	}
 
-	#Trivia:hover{
-		background-color: #8E6D6B;
-	}
-
 	#Form{
 		background-color: #A26B61;
 	}
@@ -487,18 +483,23 @@ function showAnswer5(){
 
 	<!-- MINI BOX -->
 	<div id="mini_box">
-		<div class="box" id="Profile" style="cursor: pointer" onclick="window.location='MyWebsite.html'">
-			<p class="para2_white" style="margin-left: 49px; font-size: 18px"> PROFILE </p>
-		</div>
+
+		<a href="<?php echo base_url('index.php/Home/index')?>">
+			<div class="box" id="Profile" style="cursor: pointer">
+				<p class="para2_white" style="margin-left: 49px; font-size: 18px"> PROFILE </p>
+			</div>
+		</a>
 
 		<div class="box" id="Trivia">
 			<p class="para2_white" style="margin-left: 49px; font-size: 18px"> TRIVIAS </p>
 		</div>
 		
-		<div class="box" id="Form" style="cursor: pointer" onclick="window.location='Form.php'">
-			<p class="para2_white" style="margin-left: 55px; font-size: 18px"> FORM </p>
-		</div>	
-		
+		<a href="<?php echo base_url('index.php/Form/index')?>">
+			<div class="box" id="Form" style="cursor: pointer">
+				<p class="para2_white" style="margin-left: 55px; font-size: 18px"> FORM </p>
+			</div>	
+		</a>
+
 		<div class="box" id="Blank2">
 			<p class="para2_white" style="margin-left: 48px; font-size: 18px"> </p>
 		</div>
