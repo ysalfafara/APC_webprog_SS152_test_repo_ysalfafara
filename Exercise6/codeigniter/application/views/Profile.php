@@ -219,9 +219,6 @@
 		margin-top: 295px; 
 	}
 
-	#Profile:hover{
-		background-color: #7D6F6C;
-	}
 
 	#Trivia{
 		background-color: #825D5B;
