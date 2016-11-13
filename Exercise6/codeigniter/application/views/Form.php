@@ -197,10 +197,6 @@ input[type=text], select {
     background-color: #A26B61;
   }
 
-  #Form:hover{
-    background-color: #b48880;
-  }
-
   #Blank2{
     background-color: #E38F71;
   }
@@ -296,13 +292,18 @@ input[type=text], select {
 
     <!-- MINI BOX -->
   <div id="mini_box">
-    <div class="box" id="Profile" style="cursor: pointer" onclick="window.location='MyWebsite.html'">
-      <p class="para2_white" style="font-size: 18px"> PROFILE </p>
-    </div>
 
-    <div class="box" id="Trivia" style="cursor: pointer" onclick="window.location='Trivia.html'">
-      <p class="para2_white" style="font-size: 18px"> TRIVIAS </p>
-    </div>
+    <a href="<?php echo base_url('index.php/Home/index')?>">
+      <div class="box" id="Profile" style="cursor: pointer">
+        <p class="para2_white" style="font-size: 18px"> PROFILE </p>
+      </div>
+    </a>
+
+    <a href="<?php echo base_url('index.php/Trivia/index')?>">
+      <div class="box" id="Trivia" style="cursor: pointer">
+        <p class="para2_white" style="font-size: 18px"> TRIVIAS </p>
+      </div>
+    </a>
     
     <div class="box" id="Form" style="cursor: pointer">
       <p class="para2_white" style="margin-left: 5px; font-size: 18px"> FORM </p>
