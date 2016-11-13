@@ -10,10 +10,6 @@
 
 <style>
 
-body{
-	background-image: url("Background3.jpg");
-}
-
 .p_relative {
 	position: relative;
 }
@@ -396,7 +392,7 @@ function showAnswer5(){
 </script>
 </head>
 
-<body>
+<body background="<?php echo base_url();?>/images/Background3.jpg">
 
 <div class="p_relative">
 
@@ -441,7 +437,7 @@ function showAnswer5(){
 			
 			<!-- ANSWER CHICKEN -->
 			<div onclick="showAnswer()" class="showAnswer_button"> Answer </div>
-			<img class="answers" id="answer_food" src="ChickenJoy.png" style="margin-top: 130px"></img>
+			<img class="answers" id="answer_food" src="<?php echo base_url();?>/images/ChickenJoy.png" style="margin-top: 130px"></img>
 		
 		</div>
 
