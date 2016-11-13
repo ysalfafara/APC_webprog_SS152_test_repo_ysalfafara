@@ -405,16 +405,17 @@ a:hover{
 			<p class="para2_white" style="margin-left: 49px; font-size: 18px"> PROFILE </p>
 		</div>
 
-			<a href="<?php echo base_url('index.php/home2/index')?>">
-		<div class="box" id="Trivia" style="cursor: pointer">
+		<a href="<?php echo base_url('index.php/Trivia/index')?>">
+			<div class="box" id="Trivia" style="cursor: pointer">
 				<p class="para2_white" style="margin-left: 49px; font-size: 18px"> TRIVIAS </p>
-			
-		</div>
+			</div>
 		</a>
 		
-		<div class="box" id="Form" style="cursor: pointer" onclick="window.location='Form.php'">
-			<p class="para2_white" style="margin-left: 55px; font-size: 18px"> FORM </p>
-		</div>	
+		<a href="<?php echo base_url('index.php/Form/index')?>">
+			<div class="box" id="Form" style="cursor: pointer">
+				<p class="para2_white" style="margin-left: 55px; font-size: 18px"> FORM </p>
+			</div>
+		</a>	
 	
 		<div class="box" id="Blank2">
 			<p class="para2_white" style="margin-left: 48px; font-size: 18px"> </p>
