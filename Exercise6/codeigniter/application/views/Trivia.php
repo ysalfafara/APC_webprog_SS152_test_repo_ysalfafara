@@ -447,7 +447,7 @@ function showAnswer5(){
 			
 			<!-- ANSWER TABLET TENNIS -->
 			<div onclick="showAnswer2()" class="showAnswer_button"> Answer </div>
-			<img class="answers" id="answer_hobby" src="TableTennis.png" style="margin-top: 160px"></img>
+			<img class="answers" id="answer_hobby" src="<?php echo base_url();?>/images/TableTennis.png" style="margin-top: 160px"></img>
 		
 		</div>
 
@@ -459,7 +459,7 @@ function showAnswer5(){
 			<div onclick="showAnswer3()" class="showAnswer_button" id="show_answer2"> Answer </div>
 			<p class="para_yellow" id="answer2"> SUNDAY MORNING </p>
 			<audio controls class="answer2" id="answer_music">
- 				<source src="Sunday Morning.mp3" type="audio/mpeg"> 
+ 				<source src="<?php echo base_url();?>/images/Sunday Morning.mp3" type="audio/mpeg"> 
 			</audio>
 		
 		</div>
@@ -478,7 +478,7 @@ function showAnswer5(){
 		
 			<!-- ANSWER FRIENDS -->
 			<div onclick="showAnswer5()" class="showAnswer_button" id="show_answer2"> Answer </div>
-			<img src="Friends.png" id="answer_tvShow" style="width: 150px; margin-top: 25px; margin-left: 260px"></img>		
+			<img src="<?php echo base_url();?>/images/Friends.png" id="answer_tvShow" style="width: 150px; margin-top: 25px; margin-left: 260px"></img>		
 		
 		</div>
 
