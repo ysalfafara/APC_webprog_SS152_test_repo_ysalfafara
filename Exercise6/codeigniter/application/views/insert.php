@@ -1,81 +1,3 @@
-<?php
-// define variables and set to empty values
-$Err = $fnameErr = $lnameErr = $nicknameErr = $emailErr = $genderErr = $homeAddErr = $phoneNumErr = "";
-$fname = $lname = $nickname = $email = $gender = $comment = $homeAdd = $phoneNum = "";
-
-if(isset($_POST['submit'])){
-    $fname = test_input($_POST["fname"]);
-    // check if fname only contains letters and numbers
-    if (!preg_match("/^[a-zA-Z0-9 ]*$/", $fname)) {
-      $fnameErr = "Only letters and numbers allowed"; 
-      $Err = "Err";
-    }
-  
-
-    $lname = test_input($_POST["lname"]);
-    // check if lname only contains letters and numbers
-    if (!preg_match("/^[a-zA-Z0-9 ]*$/", $lname)) {
-      $lnameErr = "Only letters and numbers allowed"; 
-      $Err = "Err";
-    }
-  
-    $nickname = test_input($_POST["nickname"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$nickname)) {
-      $nicknameErr = "Only letters and white space allowed"; 
-      $Err = "Err";
-    }
-
-    $email = test_input($_POST["email"]);
-    // check if e-mail address is well-formed
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "Invalid email format"; 
-      $Err = "Err";
-    }
-
-    $homeAdd = test_input($_POST["homeAdd"]);
-    // check if homeAdd only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$homeAdd)) {
-      $homeAddErr = "Only letters and white space allowed";
-      $Err = "Err"; 
-    }
-
-    if (empty($_POST["gender"])) {   
-      $genderErr = "Input gender";  
-      $Err = "Err";    
-    } else {    
-      $gender = test_input($_POST["gender"]);   
-    }
-  
-    $phoneNum = test_input($_POST["phoneNum"]);
-    // check if phoneNum only contains numbers
-    if (!preg_match("/^[0-9]*$/",$phoneNum)) {
-      $phoneNumErr = "Only numbers are allowed";
-      $Err = "Err"; 
-    }
-
-    if (empty($_POST["comment"])) {    
-      $comment = "";    
-    } else {    
-      $comment = test_input($_POST["comment"]);   
-    }
-
-    if($Err != "Err"){
-      $sql_query = "INSERT INTO users(fname, lname, nickname, email, homeAdd, gender, phoneNum, comment) VALUES('$fname','$lname','$nickname', '$email','$homeAdd','$gender','$phoneNum', '$comment')";
-      mysql_query($sql_query);
-    }
-
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-
-?>
-
 <!DOCTYPE HTML>  
 <html>
 <head>
@@ -215,9 +137,7 @@ input[type=text], select {
 <div style="position: relative">
   <div class="box1">
     <h2 id="formValid"> Form Validation </h2>
-
-    <?php echo validation_errors(); ?>
-    <?php echo form_open('form'); ?> 
+    <form method="post" action="<?php echo base_url();?>index.php/users/insert_user_db"> 
       <table align = "center">
         <tr align="center">
           <td><a href = "index.php"> Back to Main Page </a></td>
@@ -225,36 +145,31 @@ input[type=text], select {
 
         <tr>
           <td>
-            <input type="text" name="fname" placeholder= "First Name" value="<?php echo $fname;?>" required>
-            <span class="error">* <br><?php echo $fnameErr;?></span>
+            <input type="text" name="fname" placeholder= "First Name" value="" required>
           </td>
         </tr>
         
         <tr>
           <td>
-            <input type="text" name="lname" placeholder="Last Name" value="<?php echo $lname;?>" required>
-            <span class="error">* <br><?php echo $lnameErr;?></span>
+            <input type="text" name="lname" placeholder="Last Name" value="" required>
           </td>
         </tr>
         
         <tr>
           <td>
-            <input type="text" name="nickname" placeholder="Nickname" value="<?php echo $nickname;?>" required>
-            <span class="error">* <br><?php echo $nicknameErr;?></span>
+            <input type="text" name="nickname" placeholder="Nickname" value="" required>
           </td>
         </tr>
         
         <tr>
           <td>
-            <input type="text" name="email" placeholder="Email" value="<?php echo $email;?>" required>
-            <span class="error">* <br><?php echo $emailErr;?></span>
+            <input type="text" name="email" placeholder="Email" value="" required>
           </td>
         </tr>
         
         <tr>
           <td>
-            <input type="text" name="homeAdd" placeholder="Home Address" value="<?php echo $homeAdd;?>">
-            <span class="error"><?php echo $homeAddErr;?></span>
+            <input type="text" name="homeAdd" placeholder="Home Address" value="">
           </td>
         </tr>
 
@@ -263,26 +178,24 @@ input[type=text], select {
             Gender:
             <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="Female" required> Female
             <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="Male"> Male 
-            <span class="error">* <br><?php echo $genderErr;?></span>
           </td>
         </tr>
 
         <tr>
           <td>
-            <input type="text" name="phoneNum" placeholder="Phone Number" value="<?php echo $phoneNum;?>" required>
-            <span class="error">* <br><?php echo $phoneNumErr;?></span>
+            <input type="text" name="phoneNum" placeholder="Phone Number" value="" required>
           </td>
         </tr>
         
         <tr>
           <td>
-            <textarea name="comment" placeholder="Comment" rows="5" cols="40" value="<?php echo $comment;?>"> </textarea>
+            <textarea name="comment" placeholder="Comment" rows="5" cols="40" value=""> </textarea>
           </td>
         </tr>
         
         <td>
           <p><span class="error">* required field </span></p>
-          <button type="submit" name="submit" value="Submit"> SUBMIT </button>
+          <div><input type = "submit" value = "Submit" /></div>
         </td>
       </table>
     </form>

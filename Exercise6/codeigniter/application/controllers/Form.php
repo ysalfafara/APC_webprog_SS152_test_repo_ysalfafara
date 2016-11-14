@@ -2,17 +2,14 @@
 
 class Form extends CI_Controller {
 
-        public function index()
-        {
-                $this->load->helper(array('form', 'url'));
+  function __construct(){
+    parent::__construct
+    #$this->load->helper('url');
+    $this->load->model('users_model');
+  }
 
-                $this->load->library('form_validation');
-
-                if ($this->form_validation->run() == FALSE){
-                        $this->load->view('Form.php');
-                }
-                else{
-                        $this->load->view('formsuccess');
-                }
-        }
+  public function index(){
+    $data['user_list'] = $this->users_model->get_all_users();
+    $this->load->view('show_users', $data);
+  }
 }
