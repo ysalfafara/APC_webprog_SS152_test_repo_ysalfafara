@@ -1,5 +1,4 @@
 <?php
-include_once 'dbconfig.php';
 // define variables and set to empty values
 $Err = $fnameErr = $lnameErr = $nicknameErr = $emailErr = $genderErr = $homeAddErr = $phoneNumErr = "";
 $fname = $lname = $nickname = $email = $gender = $comment = $homeAdd = $phoneNum = "";
@@ -84,10 +83,6 @@ function test_input($data) {
 </head>
 <style>
 
-body{
-  background-image: url("Background3.jpg");
-  opacity: 1.5;
-}
 
 .box1{
   position: absolute;
@@ -213,13 +208,16 @@ input[type=text], select {
     background-color: #f3c18c;
   }
 
+
 </style>
-<body>  
+<body background="<?php echo base_url();?>/images/Background3.jpg" style="opacity: 1.5"> 
 
 <div style="position: relative">
   <div class="box1">
     <h2 id="formValid"> Form Validation </h2>
-    <form method="post">  
+
+    <?php echo validation_errors(); ?>
+    <?php echo form_open('form'); ?> 
       <table align = "center">
         <tr align="center">
           <td><a href = "index.php"> Back to Main Page </a></td>
