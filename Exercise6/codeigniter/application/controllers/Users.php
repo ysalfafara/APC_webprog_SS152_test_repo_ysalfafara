@@ -17,7 +17,7 @@ class Users extends CI_Controller {
     $this->load->view('insert.php');
   }
 
-  public function insert_new_users(){
+  public function insert_user_db(){
     $udata['fname'] = $this->input->post('fname');
     $udata['lname'] = $this->input->post('lname');
     $udata['nickname'] = $this->input->post('nickname');
@@ -32,6 +32,33 @@ class Users extends CI_Controller {
     if($res){
       header('location:'.base_url()."index.php/users/".$this->index());
     }
+  }
+
+  public function edit_form(){
+    $this->load->view('edit.php');
+  }
+
+  public function update(){
+    $mdata['fname'] = $_POST['fname'];
+    $mdata['lname'] = $_POST['lname'];
+    $mdata['nickname'] = $_POST['nickname'];
+    $mdata['email'] = $_POST['email'];
+    $mdata['homeAdd'] = $_POST['homeAdd'];
+    $mdata['gender'] = $_POST['gender'];
+    $mdata['phoneNum'] = $_POST['phoneNum'];
+    $mdata['comment'] = $_POST['comment'];
+
+    $res = $this->users_model->update_info($mdata, $_POST['user_id']);
+
+    if($res){
+      header('location:'.base_url()."index.php/users/".$this->index());
+
+    }
+  }
+
+  public function delete($user_id){
+    $this->users_model->delete_a_user($user_id);
+    $this->index();
   }
 
 }

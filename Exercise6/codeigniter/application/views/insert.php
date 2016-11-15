@@ -140,36 +140,36 @@ input[type=text], select {
     <form method="post" action="<?php echo base_url();?>index.php/users/insert_user_db"> 
       <table align = "center">
         <tr align="center">
-          <td><a href = "index.php"> Back to Main Page </a></td>
+          <td><a href = "<?php echo base_url('index.php/Users/index')?>"> Back to Main Page </a></td>
         </tr>
 
         <tr>
           <td>
-            <input type="text" name="fname" placeholder= "First Name" value="" required>
+            <input type="text" name="fname" placeholder= "First Name" required>
           </td>
         </tr>
         
         <tr>
           <td>
-            <input type="text" name="lname" placeholder="Last Name" value="" required>
+            <input type="text" name="lname" placeholder="Last Name" required>
           </td>
         </tr>
         
         <tr>
           <td>
-            <input type="text" name="nickname" placeholder="Nickname" value="" required>
+            <input type="text" name="nickname" placeholder="Nickname" required>
           </td>
         </tr>
         
         <tr>
           <td>
-            <input type="text" name="email" placeholder="Email" value="" required>
+            <input type="text" name="email" placeholder="Email" required>
           </td>
         </tr>
         
         <tr>
           <td>
-            <input type="text" name="homeAdd" placeholder="Home Address" value="">
+            <input type="text" name="homeAdd" placeholder="Home Address">
           </td>
         </tr>
 
@@ -189,13 +189,13 @@ input[type=text], select {
         
         <tr>
           <td>
-            <textarea name="comment" placeholder="Comment" rows="5" cols="40" value=""> </textarea>
+            <textarea name="comment" placeholder="Comment" rows="5" cols="40"> </textarea>
           </td>
         </tr>
         
         <td>
           <p><span class="error">* required field </span></p>
-          <div><input type = "submit" value = "Submit" /></div>
+          <td><input type="submit" name="submit" value="Submit" /></td>
         </td>
       </table>
     </form>

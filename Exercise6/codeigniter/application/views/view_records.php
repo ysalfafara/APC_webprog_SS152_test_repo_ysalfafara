@@ -65,9 +65,9 @@ table td input{
   <div id="content">
     <table align="center">
     
-    <a href="<?php echo base_url('index.php/Users/add_form')?>">
+    
     <tr>
-        <th id="add_data"colspan="10" style="cursor: pointer"> Add Data Here </th>
+        <th id="add_data"colspan="10" style="cursor: pointer"> <a href="<?php echo base_url('index.php/Users/add_form')?>">Add Data Here </th>
     </tr>
     </a>
 
@@ -94,10 +94,10 @@ table td input{
         <td><?php echo $u_key->phoneNum; ?></td>
         <td><?php echo $u_key->comment; ?></td>
   
-        <td align="center"><a href="#" onClick="show_confirm('edit',<?php echo $u_key->fname;?>)">Edit</a></td>
+        <td align="center"><a href="<?php echo base_url('index.php/Users/edit_form')?>" onClick="show_confirm('edit',<?php echo $u_key->user_id;?>)"><img src="<?php echo base_url();?>/images/p_edit.png" style="width: 20px"></img></a></td>
         
 
-        <td align="center"><a href="#" onClick="show_confirm('delete',<?php echo $u_key->fname;?>)">Delete </a></td>
+        <td align="center"><a href="#" onClick="show_confirm('delete',<?php echo $u_key->user_id;?>)"><img src="<?php echo base_url();?>/images/p_drop.png"></img></a></td>
         
         </tr>
 
