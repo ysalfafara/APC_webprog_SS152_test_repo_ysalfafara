@@ -2,6 +2,23 @@
 <html>
 <head>
 <title>Form Validation</title>
+
+<script type="text/javascript">
+
+function show_confirm(act, gotoid){
+    if(act == "edit"){
+        var r = confirm("Do you really want to edit?")
+    }
+    else{
+        var r = confirm("Do you really want to delete?")
+    }
+
+    if(r == true){
+        window.location="<?php echo base_url();?>index.php/users/"+act+"/"+gotoid;
+    }
+}
+
+</script>
 <style>
 
 table{
@@ -40,21 +57,6 @@ table td input{
 }
 
 </style>
-<script>
-
-function show_confirm(act, gotoid){
-    if(act == "edit"){
-        var r = confirm("Do you really want to edit?")
-    }
-    else{
-        var r = confirm("Do you really want to delete?")
-    }
-
-    if(r == true){
-        window.location="<?php echo base_url();?>index.php/users/"+act+"/"+gotoid;
-    }
-}
-</script>
 </head>
 <body background="<?php echo base_url();?>/images/Background3.jpg" style="opacity: 1.5;">
 <center>
@@ -92,10 +94,10 @@ function show_confirm(act, gotoid){
         <td><?php echo $u_key->phoneNum; ?></td>
         <td><?php echo $u_key->comment; ?></td>
   
-        <td align="center"><a href="#" onClick="show_confirm('edit',<?php echo $u_key->id;?>)"><img src="<?php echo base_url();?>/images/p_edit.png" align="EDIT" style="width: 20px"/></a></td>
+        <td align="center"><a href="#" onClick="show_confirm('edit',<?php echo $u_key->fname;?>)">Edit</a></td>
         
 
-        <td align="center"><a href="#" onClick="show_confirm('delete',<?php echo $u_key->id;?>)"><img src="<?php echo base_url();?>/images/p_drop.png" align="DELETE" /></a></td>
+        <td align="center"><a href="#" onClick="show_confirm('delete',<?php echo $u_key->fname;?>)">Delete </a></td>
         
         </tr>
 
