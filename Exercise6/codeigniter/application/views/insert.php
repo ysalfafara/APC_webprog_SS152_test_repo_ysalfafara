@@ -57,7 +57,7 @@ input{
 }
 
 input[type=text], select {
-  width: 250px;
+  width: 200px;
   height: 35px;
   padding: 12px 15px;
   margin: 8px 0;
@@ -114,21 +114,18 @@ input[type=text], select {
     background-color: #A26B61;
   }
 
-  #Blank2{
-    background-color: #E38F71;
+  #Form:hover{
+    background-color: #b48880;
   }
 
-  #Blank2:hover{
-    background-color: #e8a58d;
+  #Blank2{
+    background-color: #E38F71;
   }
 
   #Blank3{
     background-color: #F0B270;
   }
 
-  #Blank3:hover{
-    background-color: #f3c18c;
-  }
 
 
 </style>
@@ -139,31 +136,31 @@ input[type=text], select {
     <h2 id="formValid"> Form Validation </h2>
     <form method="post" action="<?php echo base_url();?>index.php/users/insert_user_db"> 
       <table align = "center">
-        <tr align="center">
-          <td><a href = "<?php echo base_url('index.php/Users/index')?>"> Back to Main Page </a></td>
-        </tr>
-
-        <tr>
+        <tr align = "center">
           <td>
             <input type="text" name="fname" placeholder= "First Name" required>
+            <span class="error">* <br></span>
           </td>
         </tr>
         
         <tr>
           <td>
             <input type="text" name="lname" placeholder="Last Name" required>
+            <span class="error">* <br></span>
           </td>
         </tr>
         
         <tr>
           <td>
             <input type="text" name="nickname" placeholder="Nickname" required>
+            <span class="error">* <br></span>
           </td>
         </tr>
         
         <tr>
           <td>
             <input type="text" name="email" placeholder="Email" required>
+            <span class="error">* <br></span>
           </td>
         </tr>
         
@@ -178,12 +175,14 @@ input[type=text], select {
             Gender:
             <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="Female" required> Female
             <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="Male"> Male 
+            <span class="error">* <br></span>
           </td>
         </tr>
 
         <tr>
           <td>
             <input type="text" name="phoneNum" placeholder="Phone Number" value="" required>
+            <span class="error">* <br></span>
           </td>
         </tr>
         
@@ -216,9 +215,11 @@ input[type=text], select {
       </div>
     </a>
     
-    <div class="box" id="Form" style="cursor: pointer">
-      <p class="para2_white" style="margin-left: 5px; font-size: 18px"> FORM </p>
-    </div>  
+    <a href="<?php echo base_url('index.php/Users/index')?>">
+      <div class="box" id="Form" style="cursor: pointer">
+        <p class="para2_white" style="margin-left: 5px; font-size: 18px"> FORM </p>
+      </div> 
+    </a> 
     
     <div class="box" id="Blank2">
       <p class="para2_white" style="margin-left: 48px; font-size: 18px"> </p>
