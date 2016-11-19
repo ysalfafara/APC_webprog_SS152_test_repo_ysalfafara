@@ -411,7 +411,7 @@ a:hover{
 			</div>
 		</a>
 		
-		<a href="<?php echo base_url('index.php/Form/index')?>">
+		<a href="<?php echo base_url('index.php/Users/index')?>">
 			<div class="box" id="Form" style="cursor: pointer">
 				<p class="para2_white" style="margin-left: 55px; font-size: 18px"> FORM </p>
 			</div>
