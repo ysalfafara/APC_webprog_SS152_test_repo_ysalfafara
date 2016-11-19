@@ -4,7 +4,7 @@ class Users extends CI_Controller {
 
   function __construct(){
     parent::__construct();
-    #$this->load->helper('url');
+    $this->load->helper('url');
     $this->load->model('users_model');
   }
 
@@ -34,31 +34,30 @@ class Users extends CI_Controller {
     }
   }
 
-  public function edit_form(){
-    $this->load->view('edit.php');
+  // OPEN EDIT FORM WITH DATA
+  function show_users_id() {
+    $id = $this->uri->segment(3);
+    $data['users'] = $this->users_model->show_users();
+    $data['single_users'] = $this->users_model->show_users_id($id);
+    $this->load->view('view_edit', $data);
   }
-
-  public function update(){
-    $mdata['fname'] = $_POST['fname'];
-    $mdata['lname'] = $_POST['lname'];
-    $mdata['nickname'] = $_POST['nickname'];
-    $mdata['email'] = $_POST['email'];
-    $mdata['homeAdd'] = $_POST['homeAdd'];
-    $mdata['gender'] = $_POST['gender'];
-    $mdata['phoneNum'] = $_POST['phoneNum'];
-    $mdata['comment'] = $_POST['comment'];
-
-    $res = $this->users_model->update_info($mdata, $_POST['user_id']);
-
-    if($res){
-      header('location:'.base_url()."index.php/users/".$this->index());
-
-    }
+  function update_users_id1() {
+    $id= $this->input->post('did');
+    $data = array(
+    'fname' => $this->input->post('fname'),
+    'lname' => $this->input->post('lname'),
+    'email' => $this->input->post('email'),
+    'homeAdd' => $this->input->post('homeAdd'),
+    'gender' => $this->input->post('gender'),
+    'phoneNum' => $this->input->post('phoneNum'),
+    'comment' => $this->input->post('comment')
+    );
+    $this->users_model->update_users_id1($id, $data);
+    $this->show_users_id();
   }
 
   public function delete($user_id){
     $this->users_model->delete_a_user($user_id);
-    $this->index();
   }
 
 }

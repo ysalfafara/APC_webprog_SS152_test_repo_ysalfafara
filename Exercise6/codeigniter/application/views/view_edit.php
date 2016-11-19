@@ -54,6 +54,10 @@ p, form{
   color: #5B5552;
 }
 
+#hide{
+  display: none;
+}
+
 input{
   margin-left: 25px;
 }
@@ -81,44 +85,52 @@ input[type=text], select {
 <div style="position: relative">
   <div class="box">
     <h2 id="formValid"> Form Validation </h2>
-    <form method="post" action="<?php echo base_url();?>index.php/users/update">  
-    <?php extract($user);?>
+<ol>
+<?php foreach ($users as $users): ?>
+<li><a href="<?php echo base_url() . "index.php/users/show_users_id/" . $users->user_id; ?>"><?php echo $users->fname; ?></a></li>
+<?php endforeach; ?>
+</ol>
+    <!-- Fetching all Records from the Database -->
+    <?php foreach ($single_users as $users): ?>
+
+    <form method="post" action="<?php echo base_url() . "index.php/users/update_users_id1"?>">
+
       <table align = "center">
         <tr align="center">
-          <td><a href = "index.php"> Back to Main Page </a></td>
+          <td><a href = "<?php echo base_url('index.php/users/index')?>"> Back to Main Page </a></td>
         </tr>
-
+        <input type="text" id="hide" name="did" value="<?php echo $users->user_id; ?>">
         <tr>
           <td>
-            <input type="text" name="fname" placeholder="First Name" value="<?php echo $fname; ?>" required />
+            <input type="text" name="fname" placeholder="First Name" value="<?php echo $users->fname; ?>" required >
             <span class="error">* <br></span>
           </td>
         </tr>
         
         <tr>
           <td>
-            <input type="text" name="lname" placeholder="Last Name" value="<?php echo $lname; ?>" required />
+            <input type="text" name="lname" placeholder="Last Name" value="<?php echo $users->lname; ?>" required >
             <span class="error">* <br></span>
           </td>
         </tr>
         
         <tr>
           <td>
-            <input type="text" name="nickname" placeholder="Nickname" value="<?php echo $nickname; ?>" required />
+            <input type="text" name="nickname" placeholder="Nickname" value="<?php echo $users->nickname; ?>" required >
             <span class="error">* <br></span>
           </td>
         </tr>
         
         <tr>
           <td>
-            <input type="text" name="email" placeholder="Email" value="<?php echo $email; ?>" required />
+            <input type="text" name="email" placeholder="Email" value="<?php echo $users->email; ?>" required >
             <span class="error">* <br></span>
           </td>
         </tr>
         
         <tr>
           <td>
-            <input type="text" name="homeAdd" placeholder="Home Address" value="<?php echo $homeAdd; ?>" />
+            <input type="text" name="homeAdd" placeholder="Home Address" value="<?php echo $users->homeAdd; ?>" >
             <span class="error">* <br></span>
           </td>
         </tr>
@@ -126,7 +138,7 @@ input[type=text], select {
         </tr>
           <td>
             Gender:
-            <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="Female"> Female
+            <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="Female" required> Female
             <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="Male"> Male 
             <span class="error">* <br></span>
           </td>
@@ -134,26 +146,26 @@ input[type=text], select {
 
         <tr>
           <td>
-            <input type="text" name="phoneNum" placeholder="Phone Number" value="<?php echo $phoneNum; ?>" required />
+            <input type="text" name="phoneNum" placeholder="Phone Number" value="<?php echo $users->phoneNum; ?>" required >
             <span class="error">* <br></span>
           </td>
         </tr>
         
         <tr>
           <td>
-            <textarea name="comment" placeholder="Comment" rows="5" cols="40" value="<?php echo $comment; ?>"></textarea>
+            <textarea name="comment" placeholder="Comment" rows="5" cols="40" value="<?php echo $users->comment; ?>"></textarea>
           </td>
         </tr>
         
         <td>
           <p><span class="error">* required field </span></p>
-          <input type="hidden" name="id" value="<?php echo $id; ?>" />
-          <input type="submit" name="submit" value="Update" /></td>
+          <input type="submit" name="submit" value="Update"></td>
 
         </td>
         </tr>
       </table>
     </form>
+    <?php endforeach; ?>
   </div>
 </body>
 </html>
