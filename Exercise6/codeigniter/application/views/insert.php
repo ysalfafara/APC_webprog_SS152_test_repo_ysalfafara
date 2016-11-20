@@ -37,8 +37,14 @@ textarea{
   padding: 12px 20px 12px 40px;
 }
 
-p, form{
-  padding-left: 50px;
+form{
+  padding-left: 90px;
+  padding-right: 60px;
+  color: #5B5552;
+}
+
+p{
+  padding-left: 40px;
   padding-right: 60px;
   color: #5B5552;
 }
@@ -136,7 +142,7 @@ input[type=text], select {
     <h2 id="formValid"> Form Validation </h2>
     <form method="post" action="<?php echo base_url();?>index.php/users/insert_user_db"> 
       <table align = "center">
-        <tr align = "center">
+        <tr>
           <td>
             <input type="text" name="fname" placeholder= "First Name" required>
             <span class="error">* <br></span>
@@ -194,7 +200,7 @@ input[type=text], select {
         
         <td>
           <p><span class="error">* required field </span></p>
-          <td><input type="submit" name="submit" value="Submit" /></td>
+          <input type="submit" name="submit" value="Submit" /></td>
         </td>
       </table>
     </form>
@@ -205,19 +211,19 @@ input[type=text], select {
 
     <a href="<?php echo base_url('index.php/Home/index')?>">
       <div class="box" id="Profile" style="cursor: pointer">
-        <p class="para2_white" style="font-size: 18px"> PROFILE </p>
+        <p class="para2_white" style="margin-left: 10px; font-size: 18px"> PROFILE </p>
       </div>
     </a>
 
     <a href="<?php echo base_url('index.php/Trivia/index')?>">
       <div class="box" id="Trivia" style="cursor: pointer">
-        <p class="para2_white" style="font-size: 18px"> TRIVIAS </p>
+        <p class="para2_white" style="margin-left: 11px; font-size: 18px"> TRIVIAS </p>
       </div>
     </a>
     
     <a href="<?php echo base_url('index.php/Users/index')?>">
       <div class="box" id="Form" style="cursor: pointer">
-        <p class="para2_white" style="margin-left: 5px; font-size: 18px"> FORM </p>
+        <p class="para2_white" style="margin-left: 5px; font-size: 18px"> RECORDS </p>
       </div> 
     </a> 
     

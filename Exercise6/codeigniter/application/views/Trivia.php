@@ -486,17 +486,17 @@ function showAnswer5(){
 
 		<a href="<?php echo base_url('index.php/Home/index')?>">
 			<div class="box" id="Profile" style="cursor: pointer">
-				<p class="para2_white" style="margin-left: 49px; font-size: 18px"> PROFILE </p>
+				<p class="para2_white" style="margin-left: 51px; font-size: 18px"> PROFILE </p>
 			</div>
 		</a>
 
 		<div class="box" id="Trivia">
-			<p class="para2_white" style="margin-left: 49px; font-size: 18px"> TRIVIAS </p>
+			<p class="para2_white" style="margin-left: 51px; font-size: 18px"> TRIVIAS </p>
 		</div>
 		
 		<a href="<?php echo base_url('index.php/Users/index')?>">
 			<div class="box" id="Form" style="cursor: pointer">
-				<p class="para2_white" style="margin-left: 55px; font-size: 18px"> FORM </p>
+				<p class="para2_white" style="margin-left: 45px; font-size: 18px"> RECORDS </p>
 			</div>	
 		</a>
 

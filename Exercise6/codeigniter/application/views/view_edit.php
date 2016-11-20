@@ -7,12 +7,7 @@
 </head>
 <style>
 
-body{
-  background-image: url("Background3.jpg");
-  opacity: 1.5;
-}
-
-.box{
+.box1{
   position: absolute;
   left: 30%;
   margin-top: 20px;
@@ -44,8 +39,14 @@ textarea{
 }
 
 
-p, form{
-  padding-left: 50px;
+form{
+  padding-left: 90px;
+  padding-right: 60px;
+  color: #5B5552;
+}
+
+p{
+  padding-left: 40px;
   padding-right: 60px;
   color: #5B5552;
 }
@@ -78,12 +79,72 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
+.box{
+  background-color: #EEE7DA;
+  box-shadow: 1px 2px 20px #272532;
+  border-radius: 5px;
+  color: #EFF8F9;
+}
+
+.para2_white{
+  position: absolute;
+  font-family: calibri;
+  font-size: 14px;
+  color: #EEE7DA;
+  line-height: 0.5em;
+}
+
+#mini_box{
+  position: absolute;
+
+} 
+  #Profile, #Trivia, #Form, #Blank2, #Blank3{
+    margin-top: 15px; 
+    margin-left: 80px;
+    width: 160px;
+    height: 45px;
+  }
+
+  #Profile{
+    background-color: #6F5F5C;
+    margin-top: 295px; 
+  }
+
+  #Profile:hover{
+    background-color: #7D6F6C;
+  }
+
+  #Trivia{
+    background-color: #825D5B;
+  }
+
+  #Trivia:hover{
+    background-color: #8E6D6B;
+  }
+
+  #Form{
+    background-color: #A26B61;
+  }
+
+  #Form:hover{
+    background-color: #b48880;
+  }
+
+  #Blank2{
+    background-color: #E38F71;
+  }
+
+  #Blank3{
+    background-color: #F0B270;
+  }
+
+
 
 </style>
-<body>  
+<body background="<?php echo base_url();?>/images/Background3.jpg" style="opacity: 1.5"> 
 
 <div style="position: relative">
-  <div class="box">
+  <div class="box1">
     <h2 id="formValid"> Form Validation </h2>
     <!-- Fetching all Records from the Database -->
     <?php foreach ($single_users as $users): ?>
@@ -91,9 +152,6 @@ input[type=text], select {
     <form method="post" action="<?php echo base_url() . "index.php/users/update_users_id1"?>">
 
       <table align = "center">
-        <tr align="center">
-          <td><a href = "<?php echo base_url('index.php/users/index')?>"> Back to Main Page </a></td>
-        </tr>
         <input type="text" id="hide" name="did" value="<?php echo $users->user_id; ?>">
         <tr>
           <td>
@@ -155,12 +213,41 @@ input[type=text], select {
         <td>
           <p><span class="error">* required field </span></p>
           <input type="submit" name="submit" value="Update"></td>
-
         </td>
         </tr>
       </table>
     </form>
     <?php endforeach; ?>
   </div>
+
+      <!-- MINI BOX -->
+  <div id="mini_box">
+
+    <a href="<?php echo base_url('index.php/Home/index')?>">
+      <div class="box" id="Profile" style="cursor: pointer">
+        <p class="para2_white" style="margin-left: 11px; font-size: 18px"> PROFILE </p>
+      </div>
+    </a>
+
+    <a href="<?php echo base_url('index.php/Trivia/index')?>">
+      <div class="box" id="Trivia" style="cursor: pointer">
+        <p class="para2_white" style="margin-left: 11px; font-size: 18px"> TRIVIAS </p>
+      </div>
+    </a>
+    
+    <a href="<?php echo base_url('index.php/Users/index')?>">
+      <div class="box" id="Form" style="cursor: pointer">
+        <p class="para2_white" style="margin-left: 5px; font-size: 18px"> RECORDS </p>
+      </div> 
+    </a> 
+    
+    <div class="box" id="Blank2">
+      <p class="para2_white" style="margin-left: 48px; font-size: 18px"> </p>
+    </div>
+
+    <div class="box" id="Blank3">
+      <p class="para2_white" style="margin-left: 48px; font-size: 18px"> </p>
+    </div>
+
 </body>
 </html>

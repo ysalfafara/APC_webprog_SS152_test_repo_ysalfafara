@@ -28,7 +28,7 @@ table{
     font-family: calibri;
     width:80%;
     color:#6F5F5C;
-    margin-bottom:80px;
+    margin-top:30px;
 }
 
 table a{
