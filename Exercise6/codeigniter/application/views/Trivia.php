@@ -432,7 +432,7 @@ function showAnswer5(){
 			<h5 class="para_red"> What is my <br> FAVORITE FOOD? </h5>
 			
 			<!-- ANSWER CHICKEN -->
-			<div onclick="showAnswer()" class="showAnswer_button"> Answer </div>
+			<div onclick="showAnswer()" class="showAnswer_button" style="cursor: pointer"> Answer </div>
 			<img class="answers" id="answer_food" src="<?php echo base_url();?>/images/ChickenJoy.png" style="margin-top: 130px"></img>
 		
 		</div>
@@ -442,7 +442,7 @@ function showAnswer5(){
 			<h5 class="para_red"> What is my <br> FAVORITE HOBBY? </h5>
 			
 			<!-- ANSWER TABLET TENNIS -->
-			<div onclick="showAnswer2()" class="showAnswer_button"> Answer </div>
+			<div onclick="showAnswer2()" class="showAnswer_button" style="cursor: pointer"> Answer </div>
 			<img class="answers" id="answer_hobby" src="<?php echo base_url();?>/images/TableTennis.png" style="margin-top: 160px"></img>
 		
 		</div>
@@ -452,7 +452,7 @@ function showAnswer5(){
 			<h5 class="para_red" style="margin-left: 20px; margin-top: 10px;"> What is my FAVORITE SONG? </h5>
 			
 			<!-- ANSWER SUNDAY MORNING -->
-			<div onclick="showAnswer3()" class="showAnswer_button" id="show_answer2"> Answer </div>
+			<div onclick="showAnswer3()" class="showAnswer_button" id="show_answer2" style="cursor: pointer"> Answer </div>
 			<p class="para_yellow" id="answer2"> SUNDAY MORNING </p>
 			<audio controls class="answer2" id="answer_music">
  				<source src="<?php echo base_url();?>/images/Sunday Morning.mp3" type="audio/mpeg"> 
@@ -464,7 +464,7 @@ function showAnswer5(){
 			<h5 class="para_red" style="margin-left: 20px; margin-top: 10px;"> What is my FAVORITE QUOTE? </h5>
 		
 			<!-- ANSWER UNEXPECTED THINGS -->
-			<div onclick="showAnswer4()" class="showAnswer_button" id="show_answer2"> Answer </div>
+			<div onclick="showAnswer4()" class="showAnswer_button" id="show_answer2" style="cursor: pointer"> Answer </div>
 			<p class="para_yellow" id="answer_quote"> It's The Things That You Least Expect That Hit You The Hardest </p>		
 		
 		</div>
@@ -473,7 +473,7 @@ function showAnswer5(){
 			<h5 class="para_red" style="margin-left: 20px; margin-top: 10px;"> What is my FAVORITE TV SHOW? </h5>
 		
 			<!-- ANSWER FRIENDS -->
-			<div onclick="showAnswer5()" class="showAnswer_button" id="show_answer2"> Answer </div>
+			<div onclick="showAnswer5()" class="showAnswer_button" id="show_answer2" style="cursor: pointer"> Answer </div>
 			<img src="<?php echo base_url();?>/images/Friends.png" id="answer_tvShow" style="width: 150px; margin-top: 25px; margin-left: 260px"></img>		
 		
 		</div>
