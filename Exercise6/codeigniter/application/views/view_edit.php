@@ -85,11 +85,6 @@ input[type=text], select {
 <div style="position: relative">
   <div class="box">
     <h2 id="formValid"> Form Validation </h2>
-<ol>
-<?php foreach ($users as $users): ?>
-<li><a href="<?php echo base_url() . "index.php/users/show_users_id/" . $users->user_id; ?>"><?php echo $users->fname; ?></a></li>
-<?php endforeach; ?>
-</ol>
     <!-- Fetching all Records from the Database -->
     <?php foreach ($single_users as $users): ?>
 

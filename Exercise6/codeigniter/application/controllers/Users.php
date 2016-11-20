@@ -54,6 +54,7 @@ class Users extends CI_Controller {
     );
     $this->users_model->update_users_id1($id, $data);
     $this->show_users_id();
+    redirect(users_model/index);
   }
 
   public function delete($user_id){
