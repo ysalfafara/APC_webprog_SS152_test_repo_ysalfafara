@@ -11,8 +11,7 @@ use yii\widgets\ActiveForm;
 <div class="trivia-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'id')->textInput() ?>
+    <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'questions')->textInput(['maxlength' => true]) ?>
 

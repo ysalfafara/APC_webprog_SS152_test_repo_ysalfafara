@@ -43,4 +43,16 @@ class Trivia extends \yii\db\ActiveRecord
             'answer' => 'Answer',
         ];
     }
+
+
+  public function randomNumber()
+{
+    //for generating random number
+    $length =1;
+    $chars = array_merge(range(0,9));
+    shuffle($chars);
+    $id = implode(array_slice($chars, 0,$length));
+    echo $id;
+
+}
 }
