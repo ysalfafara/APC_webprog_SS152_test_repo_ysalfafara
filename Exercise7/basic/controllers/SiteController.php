@@ -62,7 +62,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $query = Trivias::find()
+        ->orderBy(new Expression('rand()'))
+        ->limit(5)
+        ->all();
+        
+        return $this->render('index', [
+            'trivias' => $query,
+        ]);
     }
 
     /**
