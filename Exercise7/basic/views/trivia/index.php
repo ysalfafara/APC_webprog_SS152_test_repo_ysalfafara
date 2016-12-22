@@ -11,31 +11,39 @@ use yii\widgets\Pjax;
 $this->title = 'Trivias';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="trivia-index">
+<div class="site-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function()
+{
+    $("#show").click(function(){
+        $("answers").toggle(500);
+    });
+});
+</script>
 
-    <p>
-         <?php
+<<h1>Trivia Section</h1>
+<p></p>
+        <?php
             if (Yii::$app->user->isGuest) {
                 
             } elseif(Yii::$app->user->identity->username) {
-                echo Html::a('Create a Trivia', ['create'], ['class' => 'btn btn-success']); 
+                echo Html::a('Edit a Trivia', ['trivia/index'], ['class' => 'btn btn-success']);
             }
             ?>
-    </p>
-    <?php Pjax::begin(); ?>   
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
 
-            'questions',
+<br></br>
 
-            ['class' => 'yii\grid\ActionColumn','template'=>'{view}'],
-        ],
-    ]); ?>
-    <?php Pjax::end(); ?>
+<?php foreach ($trivias as $trivia): ?>
+    <li>
+        <strong><?= Html::encode("{$trivia->questions}") ?>:</strong>
+        <br></br>
+        <answers style="display:none"><?= Html::encode("{$trivia->answer}") ?>      </answers>
+        <br></br>
+    </li>
+<?php endforeach; ?>
+<button id="show">Show all answer</button>
+<p></p>
+</ul>
 </div>
