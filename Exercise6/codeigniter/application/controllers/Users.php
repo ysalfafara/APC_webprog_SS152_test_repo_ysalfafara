@@ -60,6 +60,7 @@ class Users extends CI_Controller {
 
   public function delete($user_id){
     $this->users_model->delete_a_user($user_id);
+    redirect('index.php/users/index', 'refresh');
   }
 
 }
