@@ -23,8 +23,8 @@ class TriviasModel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['question', 'answer'], 'required'],
-            [['question', 'answer'], 'string', 'max' => 255],
+            [['questions', 'answer'], 'required'],
+            [['questions', 'answer'], 'string', 'max' => 255],
         ];
     }
     /**
@@ -34,7 +34,7 @@ class TriviasModel extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'question' => 'Question',
+            'questions' => 'Question',
             'answer' => 'Answer',
         ];
     }
